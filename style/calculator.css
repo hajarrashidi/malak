@@ -1,0 +1,111 @@
+.calculator {
+    width: 300px;
+    background-color: #ff74bc;
+    padding: 15px;
+    border-radius: 3px;
+    border: 10px solid #ffd6ea;
+}
+.content {
+    width: 100%;
+    box-sizing: border-box;
+}
+#display_equation {
+    width: 100%;
+    box-sizing: border-box;
+    height: 50px;
+    color: #ffffff;
+    background-color: #ff82c3;
+    border: 3px solid #ffa6d3;
+    border-radius: 3px;
+    padding: 10px;
+    font-size: 20px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+}
+#display_result {
+    height: 15px;
+    color: #ffffff;
+    background-color: #ffc4e2;
+    border: 3px solid #ffa6d3;
+    border-radius: 3px;
+    padding: 10px;
+    font-size: 15px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+}
+#display_equation:focus {
+    outline: none;
+}
+.numberpad {
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 10px;
+    border: 3px solid #ffa6d3;
+}
+.numberKey {
+    flex-grow: 1;
+    background-color: #ff82c3;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    color: #ffffff;
+    border: none;
+}
+.numberKey:hover {
+    background-color: #ff8fc7;
+    cursor: pointer;
+}
+.operation:hover {
+    background-color: #ff8fc7;
+    cursor: pointer;
+}
+.action_button:hover {
+    background-color: #ff8fc7;
+    cursor: pointer;
+}
+
+
+#actions {
+    margin-top: 10px;
+    border: 3px solid #ffa6d3;
+    display: flex;
+    flex-flow: row wrap;
+}
+.action_button {
+    background-color: #ff82c3;
+    height: 50px;
+    width: 33.33%;
+    text-align: center;
+    font-size: 20px;
+    color: #ffffff;
+    border: none;
+}
+.operations {
+    margin-top: 10px;
+    border: 3px solid #ffa6d3;
+    display: flex;
+    flex-flow: row wrap;
+}
+.operation {
+    background-color: #ff82c3;
+    height: 50px;
+    width: 33.33%;
+    text-align: center;
+    font-size: 20px;
+    color: #ffffff;
+    border: none;
+}
+@media only screen and (max-width: 768px) {
+    .calculator {
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0px;
+        border: none;
+    }
+
+    body {
+        margin: 0px;
+    }
+}
