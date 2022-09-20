@@ -11,34 +11,34 @@
 	<meta name="theme-color" content="#ff82c3" />
 </head>
 <body>
-	<div class="calculator">
-		<div class="content"></div>
-		<div id="displayValue">
-			<input type="text" id="display_equation" onchange="updateEquation()" autofocus>
-			<p id="display_result"></p>
-		</div>
-		<div id="keypanel" class="numberpad">
-			<button class="numberKey" onclick="getKey(0)">0</button>
-			<button class="numberKey" onclick="getKey(1)">1</button>
-			<button class="numberKey" onclick="getKey(2)">2</button>
-			<button class="numberKey" onclick="getKey(3)">3</button>
-			<button class="numberKey" onclick="getKey(4)">4</button>
-			<button class="numberKey" onclick="getKey(5)">5</button>
-			<button class="numberKey" onclick="getKey(6)">6</button>
-			<button class="numberKey" onclick="getKey(7)">7</button>
-			<button class="numberKey" onclick="getKey(8)">8</button>
-			<button class="numberKey" onclick="getKey(9)">9</button>
-		</div>
-		<div class="operations">
-			<button id="addition" class="operation" onclick="getKey('+')">+</button>
-			<button id="subtraction" class="operation" onclick="getKey('-')">-</button>
-			<button id="multiplication" class="operation" onclick="getKey('*')">x</button>
-		</div>
-		<div id="actions">
-			<button id="calculate" class="action_button" onclick="getKey('calculate')">=</button>
-			<button id="clean" class="action_button" onclick="getKey('clean')">clean</button>
+	<div id="container">
+		<div class="calculator">
+			<div id="displayValue">
+				<input type="text" id="display_equation" onchange="updateEquation()" autofocus>
+				<p id="display_result"></p>
+			</div>
+			<div id="keypanel" class="numberpad">
+				<div class="numberKey" onclick="getKey(0)">0</div>
+				<div class="numberKey" onclick="getKey(1)">1</div>
+				<div class="numberKey" onclick="getKey(2)">2</div>
+				<div class="numberKey" onclick="getKey(3)">3</div>
+				<div class="numberKey" onclick="getKey(4)">4</div>
+				<div class="numberKey" onclick="getKey(5)">5</div>
+				<div class="numberKey" onclick="getKey(6)">6</div>
+				<div class="numberKey" onclick="getKey(7)">7</div>
+				<div class="numberKey" onclick="getKey(8)">8</div>
+				<div class="numberKey" onclick="getKey(9)">9</div>
+			</div>
+			<div class="operations">
+				<div id="addition" class="operation" onclick="getKey('+')">+</div>
+				<div id="subtraction" class="operation" onclick="getKey('-')">-</div>
+				<div id="multiplication" class="operation" onclick="getKey('*')">x</div>
+			</div>
+			<div id="actions">
+				<div id="calculate" class="action_button" onclick="getKey('calculate')">=</div>
+				<div id="clean" class="action_button" onclick="getKey('clean')">clean</div>
+			</div>
 		</div>
 	</div>
-
 </body>
 </html>

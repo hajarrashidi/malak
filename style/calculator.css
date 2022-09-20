@@ -1,13 +1,15 @@
+#container {
+    display: flex;
+    justify-content: center;
+    padding: 10%;
+}
 .calculator {
-    width: 300px;
+    width: 500px;
     background-color: #ff74bc;
     padding: 15px;
     border-radius: 3px;
     border: 10px solid #ffd6ea;
-}
-.content {
-    width: 100%;
-    box-sizing: border-box;
+
 }
 #display_equation {
     width: 100%;
@@ -38,20 +40,24 @@
 }
 .numberpad {
     display: flex;
-    flex-flow: row wrap;
+    flex-wrap: wrap;
     margin-top: 10px;
     border: 3px solid #ffa6d3;
+    justify-content: flex-start;
+    align-items: stretch;
 }
 .numberKey {
-    flex-grow: 1;
+    margin: 3px;
     background-color: #ff82c3;
-    width: 50px;
-    height: 50px;
+    width: 75px;
+    height: 75px;
     text-align: center;
     line-height: 50px;
     font-size: 20px;
     color: #ffffff;
-    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .numberKey:hover {
     background-color: #ff8fc7;
@@ -69,15 +75,20 @@
     border: 3px solid #ffa6d3;
     display: flex;
     flex-flow: row wrap;
+
 }
 .action_button {
+    margin: 3px;
     background-color: #ff82c3;
-    height: 50px;
-    width: 33.33%;
+    width: 75px;
+    height: 75px;
     text-align: center;
+    line-height: 50px;
     font-size: 20px;
     color: #ffffff;
-    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;;
 }
 .operations {
     margin-top: 10px;
@@ -86,14 +97,19 @@
     flex-flow: row wrap;
 }
 .operation {
+    margin: 3px;
     background-color: #ff82c3;
-    height: 50px;
-    width: 33.33%;
+    width: 75px;
+    height: 75px;
     text-align: center;
+    line-height: 50px;
     font-size: 20px;
     color: #ffffff;
-    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+/*  */
 @media only screen and (max-width: 768px) {
     .calculator {
         width: 100%;
@@ -106,4 +122,23 @@
     body {
         margin: 0px;
     }
+    #container {
+        padding: 0%;
+    }
+    /*.operation {*/
+    /*    height: 50px;*/
+    /*    weight: 50px;*/
+    /*}*/
+    /*.action_button {*/
+    /*    height: 50px;*/
+    /*    weight: 50px;*/
+    /*}*/
+
+}
+
+body {
+    background-color: #ff74bc;
+    margin: 0px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
 }
