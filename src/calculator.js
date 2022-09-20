@@ -72,7 +72,7 @@ class CalculatorGUI {
 
 
     key_pressed(key) {
-        this.playsound();
+        this.playsound("click");
         if (key == "clean") {
            calculator.cleanEquation();
            this.updateDisplay()
@@ -91,8 +91,8 @@ class CalculatorGUI {
         }
     }
     
-    playsound() {
-        const audio = document.getElementById("audio");
+    playsound(soundEffect) {
+        const audio = new Audio(`../files/sounds/${soundEffect}.mp3`);
         audio.play();
     }
 }
