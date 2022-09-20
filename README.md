@@ -1,3 +1,3 @@
-# Malaks Calculator
+# Malaks Calculator 💞
 A calculator for my wife
 
