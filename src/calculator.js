@@ -2,6 +2,7 @@ class Calculator {
     constructor() {
         this.equationString = "";
         this.result = 0;
+        this.history = [];
     }
 
     addToEquation(value) {
@@ -37,16 +38,20 @@ class Calculator {
         this.setResult(0)
     }
 
+    setHistory(history) {
+        this.history.push(history)
+    }
+
 }
 
 class CalculatorGUI {
     constructor(calculator) {
         this.calculator = calculator;
         this.updateDisplay();
+        this.updateHistoryView("Welcome to Malaks calculator!💕");
     }
 
     updateDisplay() {
-        document.getElementById("display_result").innerText = "= " + this.calculator.getResult();
         document.getElementById("display_equation").value = this.calculator.getEquation();
     }
 
@@ -56,8 +61,18 @@ class CalculatorGUI {
         this.updateDisplay()
     }
 
+    updateHistoryView(information) {
+        let history = document.getElementById("history_view");
+        let historyElement = document.createElement("div");
+        historyElement.innerHTML = information;
+        historyElement.innerHTML += `<hr class="divider">`;
+        history.appendChild(historyElement);
+        historyElement.scrollIntoView();
+    }
+
 
     key_pressed(key) {
+        this.playsound("click");
         if (key == "clean") {
            calculator.cleanEquation();
            this.updateDisplay()
@@ -70,8 +85,15 @@ class CalculatorGUI {
 
         if (key == "calculate") {
             this.calculator.calculate(this.calculator.getEquation());
-            this.updateDisplay()
+            this.updateDisplay();
+            this.updateHistoryView(`${this.calculator.getEquation()} = ${this.calculator.getResult()}`);
+
         }
+    }
+    
+    playsound(soundEffect) {
+        const audio = new Audio(`../files/sounds/${soundEffect}.mp3`);
+        audio.play();
     }
 }
 

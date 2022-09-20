@@ -5,38 +5,44 @@
 		  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<script type="text/javascript" src="src/calculator.js" defer></script>
 	<script type="text/javascript" src="src/main.js" defer></script>
-	<link rel="stylesheet" type="text/css" href="style/calculator.css">
+	<link rel="stylesheet" type="text/css" href="style/calculator/calculator.css">
+	<link rel="stylesheet" type="text/css" href="style/calculator/calculator_mobile.css">
 	<link rel="apple-touch-icon" href="favicon/apple-touch-icon.png" />
 	<link rel="shortcut icon" href="favicon/favicon.ico" />
 	<meta name="theme-color" content="#ff82c3" />
+	<meta charset="UTF-8">
 </head>
 <body>
 	<div id="container">
 		<div class="calculator">
-			<div id="displayValue">
-				<input type="text" id="display_equation" onchange="updateEquation()" autofocus>
-				<p id="display_result"></p>
+			<div id="display">
+				<div>
+					<input type="text" id="display_equation" onchange="updateEquation()" autofocus>
+				</div>
+				<div id="history_view"></div>
 			</div>
 			<div id="keypanel" class="numberpad">
-				<div class="numberKey" onclick="getKey(0)">0</div>
-				<div class="numberKey" onclick="getKey(1)">1</div>
-				<div class="numberKey" onclick="getKey(2)">2</div>
-				<div class="numberKey" onclick="getKey(3)">3</div>
-				<div class="numberKey" onclick="getKey(4)">4</div>
-				<div class="numberKey" onclick="getKey(5)">5</div>
-				<div class="numberKey" onclick="getKey(6)">6</div>
-				<div class="numberKey" onclick="getKey(7)">7</div>
-				<div class="numberKey" onclick="getKey(8)">8</div>
-				<div class="numberKey" onclick="getKey(9)">9</div>
+
+				<div class="btn-basic numberKey" onclick="getKey(9)">9</div>
+				<div class="btn-basic numberKey" onclick="getKey(8)">8</div>
+				<div class="btn-basic numberKey" onclick="getKey(7)">7</div>
+				<div class="btn-basic numberKey" onclick="getKey(6)">6</div>
+				<div class="btn-basic numberKey" onclick="getKey(5)">5</div>
+				<div class="btn-basic numberKey" onclick="getKey(4)">4</div>
+				<div class="btn-basic numberKey" onclick="getKey(3)">3</div>
+				<div class="btn-basic numberKey" onclick="getKey(2)">2</div>
+				<div class="btn-basic numberKey" onclick="getKey(1)">1</div>
+				<div class="btn-basic numberKey" onclick="getKey(0)">0</div>
 			</div>
 			<div class="operations">
-				<div id="addition" class="operation" onclick="getKey('+')">+</div>
-				<div id="subtraction" class="operation" onclick="getKey('-')">-</div>
-				<div id="multiplication" class="operation" onclick="getKey('*')">x</div>
+				<div id="addition" class="btn-basic operation" onclick="getKey('+')">+</div>
+				<div id="subtraction" class="btn-basic operation" onclick="getKey('-')">-</div>
+				<div id="multiplication" class="btn-basic operation" onclick="getKey('*')">x</div>
+				<div id="divison" class="btn-basic operation" onclick="getKey('/')">/</div>
 			</div>
 			<div id="actions">
-				<div id="calculate" class="action_button" onclick="getKey('calculate')">=</div>
-				<div id="clean" class="action_button" onclick="getKey('clean')">clean</div>
+				<div id="calculate" class="btn-basic action_button" onclick="getKey('calculate')">=</div>
+				<div id="clean" class="btn-basic action_button" onclick="getKey('clean')">AC</div>
 			</div>
 		</div>
 	</div>

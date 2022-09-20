@@ -1,0 +1,171 @@
+body {
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    background-color: #ff74bc;
+    margin: 0px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    padding: 10%;
+}
+.calculator {
+    width: 500px;
+    background-color: #ff74bc;
+    padding: 15px;
+    border-radius: 3px;
+    border: 10px solid #ffd6ea;
+
+}
+.numberpad {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    border: 3px solid #ffa6d3;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+.numberKey {
+    margin: 3px;
+    background-color: #ff82c3;
+    width: 75px;
+    height: 75px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.numberKey:hover {
+    background-color: #ff8fc7;
+}
+
+
+
+#actions {
+    margin-top: 10px;
+    border: 3px solid #ffa6d3;
+    display: flex;
+    flex-flow: row wrap;
+
+}
+.action_button {
+    margin: 3px;
+    background-color: #ff82c3;
+    width: 75px;
+    height: 75px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;;
+}
+.action_button:hover {
+    background-color: #ff8fc7;
+}
+.operations {
+    margin-top: 10px;
+    border: 3px solid #ffa6d3;
+    display: flex;
+    flex-flow: row wrap;
+}
+.operation {
+    margin: 3px;
+    background-color: #ff82c3;
+    width: 75px;
+    height: 75px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.operation:hover {
+    background-color: #ff8fc7;
+}
+
+/* Display */
+#display_equation {
+    width: 100%;
+    box-sizing: border-box;
+    height: 50px;
+    color: #ffffff;
+    background-color: #ff82c3;
+    border: 3px solid #ffa6d3;
+    border-radius: 3px;
+    padding: 10px;
+    font-size: 20px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+}
+#display_equation:focus {
+    outline: none;
+}
+#history_view {
+    margin-top: 5px;
+    height: 45px;
+    color: #874969;
+    background-color: #ffc4e2;
+    border: 3px solid #ffa6d3;
+    border-radius: 3px;
+    padding: 15px;
+    font-size: 15px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    overflow-y: auto;
+    cursor: grab;
+    scroll-behavior: smooth;
+}
+
+
+.btn-basic {
+    border-radius: 3%;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #ffc4e2;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #ffd6ea;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #ffa6d3;
+}
+
+.deleteButton {
+    background-color: #ff82c3;
+    width: 10px;
+    height: 10px;
+    font-size: 20px;
+    color: #ffffff;
+    border-radius: 3px;
+    border: 3px solid #ffa6d3;
+    float: right;
+
+}
+.divider {
+    border: none;
+    border-top: 2px dashed #ffb1ca;
+}
