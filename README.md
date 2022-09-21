@@ -1,4 +1,4 @@
-# Malaks Calculator 💞
+# Malak Calculator 💞
 A calculator for my wife
 
 https://hajarrashidi.github.io/malak-calc/
