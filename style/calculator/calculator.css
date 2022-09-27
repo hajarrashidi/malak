@@ -132,6 +132,7 @@ body {
 
 .btn-basic {
     border-radius: 3%;
+    touch-action: manipulation;
 }
 
 /* width */
