@@ -63,6 +63,9 @@ class CalculatorGUI {
         this.updateDisplay();
         this.addItemToHistoryView("Welcome to Malaks calculator!💕");
         this.loadHistory();
+
+        let history = document.querySelector(".history_item:last-child");
+        history.scrollIntoView();
     }
 
     updateDisplay() {
