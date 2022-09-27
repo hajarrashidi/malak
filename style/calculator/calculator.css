@@ -120,11 +120,11 @@ body {
     background-color: #ffc4e2;
     border: 3px solid #ffa6d3;
     border-radius: 3px;
-    padding: 15px;
+    padding: 10px;
     font-size: 15px;
     font-family: 'Courier New', monospace;
     font-weight: bold;
-    overflow-y: auto;
+    overflow-y: scroll;
     cursor: grab;
     scroll-behavior: smooth;
 }
@@ -168,4 +168,19 @@ body {
 .divider {
     border: none;
     border-top: 2px dashed #ffb1ca;
+}
+
+#settings {
+    font-size: 2rem;
+}
+
+.history_item {
+    margin-bottom: 4px;
+    background-color: #fce2ed;
+    padding: 10px 10px 10px 10px;
+    border-radius: 3px;
+    color: #d15093;
+}
+.history_item:last-child {
+    background-color: #ffdbee;
 }

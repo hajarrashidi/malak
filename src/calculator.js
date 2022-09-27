@@ -1,28 +1,27 @@
 class Calculator {
-    constructor() {
-        this.equationString = "";
-        this.result = 0;
-        this.history = [];
-    }
+
+    equation = "";
+    result = 0;
+    history = [];
 
     addToEquation(value) {
-        this.equationString += value;
+        this.equation += value;
     }
 
     addEquation(equation) {
-        this.equationString = equation;
+        this.equation = equation;
     }
 
     getEquation() {
-        return this.equationString;
-    }
-
-    getResult() {
-        return this.result;
+        return this.equation;
     }
 
     setResult(result) {
         this.result = result;
+    }
+
+    getResult() {
+        return this.result;
     }
 
     calculate(equation) {
@@ -34,7 +33,7 @@ class Calculator {
     }
 
     cleanEquation() {
-        this.equationString = "";
+        this.equation = "";
         this.setResult(0)
     }
 
@@ -64,15 +63,14 @@ class CalculatorGUI {
     updateHistoryView(information) {
         let history = document.getElementById("history_view");
         let historyElement = document.createElement("div");
+        historyElement.className = "history_item";
         historyElement.innerHTML = information;
-        historyElement.innerHTML += `<hr class="divider">`;
         history.appendChild(historyElement);
         historyElement.scrollIntoView();
     }
 
 
     key_pressed(key) {
-        this.playsound("click");
         if (key == "clean") {
            calculator.cleanEquation();
            this.updateDisplay()
@@ -86,14 +84,15 @@ class CalculatorGUI {
         if (key == "calculate") {
             this.calculator.calculate(this.calculator.getEquation());
             this.updateDisplay();
-            this.updateHistoryView(`${this.calculator.getEquation()} = ${this.calculator.getResult()}`);
+            if (this.calculator.getEquation() != "") {
+                this.updateHistoryView(`${this.calculator.getEquation()} = ${this.calculator.getResult()}`);
+            }
+        }
 
+        if(key == "open_settings") {
+           alert("Settings are not available yet!");
         }
     }
-    
-    playsound(soundEffect) {
-        const audio = new Audio(`../files/sounds/${soundEffect}.mp3`);
-        audio.play();
-    }
+
 }
 
