@@ -121,7 +121,7 @@ class CalculatorGUI {
         setTimeout(() => {
             let history = document.querySelector(".history_item:last-child");
             history.scrollIntoView();
-        }, 700);
+        }, 500);
 
     }
 
