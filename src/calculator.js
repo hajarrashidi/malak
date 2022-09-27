@@ -1,8 +1,11 @@
 class Calculator {
-
     equation = "";
     result = 0;
     history = [];
+
+    constructor() {
+        this.getHistoryFromBrowser();
+    }
 
     addToEquation(value) {
         this.equation += value;
@@ -39,6 +42,17 @@ class Calculator {
 
     setHistory(history) {
         this.history.push(history)
+        this.saveHistoryToBrowser()
+    }
+
+    saveHistoryToBrowser() {
+        console.log(JSON.stringify(this.history));
+        localStorage.setItem("calculator_history", JSON.stringify(this.history));
+    }
+
+    getHistoryFromBrowser() {
+        this.history = JSON.parse(localStorage.getItem("calculator_history"));
+        console.log(this.history);
     }
 
 }
@@ -47,7 +61,8 @@ class CalculatorGUI {
     constructor(calculator) {
         this.calculator = calculator;
         this.updateDisplay();
-        this.updateHistoryView("Welcome to Malaks calculator!💕");
+        this.addItemToHistoryView("Welcome to Malaks calculator!💕");
+        this.loadHistory();
     }
 
     updateDisplay() {
@@ -60,7 +75,7 @@ class CalculatorGUI {
         this.updateDisplay()
     }
 
-    updateHistoryView(information) {
+    addItemToHistoryView(information) {
         let history = document.getElementById("history_view");
         let historyElement = document.createElement("div");
         historyElement.className = "history_item";
@@ -68,7 +83,6 @@ class CalculatorGUI {
         history.appendChild(historyElement);
         historyElement.scrollIntoView();
     }
-
 
     key_pressed(key) {
         if (key == "clean") {
@@ -85,13 +99,20 @@ class CalculatorGUI {
             this.calculator.calculate(this.calculator.getEquation());
             this.updateDisplay();
             if (this.calculator.getEquation() != "") {
-                this.updateHistoryView(`${this.calculator.getEquation()} = ${this.calculator.getResult()}`);
+                this.addItemToHistoryView(`${this.calculator.getEquation()} = ${this.calculator.getResult()}`);
+                this.calculator.setHistory(`${this.calculator.getEquation()} = ${this.calculator.getResult()}`);
             }
         }
 
         if(key == "open_settings") {
            alert("Settings are not available yet!");
         }
+    }
+
+    loadHistory() {
+        this.calculator.history.forEach(item => {
+            this.addItemToHistoryView(item);
+        });
     }
 
 }
