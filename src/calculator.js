@@ -64,8 +64,6 @@ class CalculatorGUI {
         this.addItemToHistoryView("Welcome to Malaks calculator!💕");
         this.loadHistory();
 
-        let history = document.querySelector(".history_item:last-child");
-        history.scrollIntoView();
     }
 
     updateDisplay() {
@@ -118,6 +116,9 @@ class CalculatorGUI {
                 this.addItemToHistoryView(item);
             });
         }
+
+        let history = document.querySelector(".history_item:last-child");
+        history.scrollIntoView();
     }
 
 }
