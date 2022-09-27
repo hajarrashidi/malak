@@ -1,9 +1,9 @@
 class Calculator {
-    equation = "";
-    result = 0;
-    history = [];
 
     constructor() {
+        this.history = [];
+        this.result = 0;
+        this.equation = "";
         this.getHistoryFromBrowser();
     }
 
@@ -40,19 +40,19 @@ class Calculator {
         this.setResult(0)
     }
 
-    setHistory(history) {
-        this.history.push(history)
+    setHistory(equation) {
+        this.history.push(equation);
         this.saveHistoryToBrowser()
     }
 
     saveHistoryToBrowser() {
-        console.log(JSON.stringify(this.history));
         localStorage.setItem("calculator_history", JSON.stringify(this.history));
     }
 
     getHistoryFromBrowser() {
-        this.history = JSON.parse(localStorage.getItem("calculator_history"));
-        console.log(this.history);
+        if(localStorage.getItem("calculator_history") !== null) {
+            this.history = JSON.parse(localStorage.getItem("calculator_history"));
+        }
     }
 
 }
@@ -110,9 +110,11 @@ class CalculatorGUI {
     }
 
     loadHistory() {
-        this.calculator.history.forEach(item => {
-            this.addItemToHistoryView(item);
-        });
+        if (this.calculator.history != null) {
+            this.calculator.history.forEach(item => {
+                this.addItemToHistoryView(item);
+            });
+        }
     }
 
 }
