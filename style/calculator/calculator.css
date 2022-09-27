@@ -8,6 +8,7 @@ body {
     margin: 0px;
     font-family: 'Courier New', monospace;
     font-weight: bold;
+    touch-action: manipulation;
 }
 
 #container {
@@ -132,7 +133,6 @@ body {
 
 .btn-basic {
     border-radius: 3%;
-    touch-action: manipulation;
 }
 
 /* width */
