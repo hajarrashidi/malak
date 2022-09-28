@@ -28,7 +28,9 @@ class Calculator {
     }
 
     calculate(equation) {
-        this.setResult(math.evaluate(equation));
+        let result = math.evaluate(equation);
+        navigator.clipboard.writeText(result);
+        this.setResult(result);
     }
 
     cleanEquation() {
@@ -57,7 +59,7 @@ class CalculatorGUI {
     constructor(calculator) {
         this.calculator = calculator;
         this.updateDisplay();
-        this.addItemToHistoryView("Welcome to Malaks calculator!💕");
+        this.addItemToHistoryView("Mini Malak!");
         this.loadHistory();
 
 
@@ -77,7 +79,8 @@ class CalculatorGUI {
         let history = document.getElementById("history_view");
         let historyElement = document.createElement("div");
         historyElement.className = "history_item";
-        historyElement.innerHTML = information;
+        historyElement.innerHTML += "<div class='remove_history_item' onclick='removeItem(this)'>x</div>";
+        historyElement.innerHTML += "<div class='history_item_equation'>" + information + "</div>";
         history.appendChild(historyElement);
         historyElement.scrollIntoView();
     }
@@ -96,9 +99,10 @@ class CalculatorGUI {
         if (key == "calculate") {
             this.calculator.calculate(this.calculator.getEquation());
             this.updateDisplay();
+            let equation = this.calculator.getEquation();
             if (this.calculator.getEquation() != "") {
-                this.addItemToHistoryView(`${this.calculator.getEquation()} = ${this.calculator.getResult()}`);
-                this.calculator.setHistory(`${this.calculator.getEquation()} = ${this.calculator.getResult()}`);
+                this.addItemToHistoryView(equation);
+                this.calculator.setHistory(equation);
             }
         }
 

@@ -12,9 +12,13 @@ body {
 }
 
 #container {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    justify-content: space-evenly;
+    justify-items: center;
+    align-content: space-evenly;
+    align-items: center;
     padding: 10%;
+
 }
 .calculator {
     width: 500px;
@@ -115,6 +119,8 @@ body {
     outline: none;
 }
 #history_view {
+    display: flex;
+    flex-flow: wrap;
     margin-top: 5px;
     height: 45px;
     color: #874969;
@@ -126,8 +132,15 @@ body {
     font-family: 'Courier New', monospace;
     font-weight: bold;
     overflow-y: scroll;
+    overflow-x: hidden;
     cursor: grab;
     scroll-behavior: smooth;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+
+}
+#history_view::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
 }
 
 
@@ -135,25 +148,6 @@ body {
     border-radius: 3%;
 }
 
-/* width */
-::-webkit-scrollbar {
-    width: 15px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-    background: #ffc4e2;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: #ffd6ea;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #ffa6d3;
-}
 
 .deleteButton {
     background-color: #ff82c3;
@@ -176,12 +170,43 @@ body {
 }
 
 .history_item {
+    display: flex;
+    width: 100%;
+    font-size: 15px;
     margin-bottom: 4px;
-    background-color: #fce2ed;
-    padding: 10px 10px 10px 10px;
+    background-color: #ffebf4;
+    padding: 5px 5px 5px 5px;
     border-radius: 3px;
     color: #d15093;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    word-break: break-all;
 }
-.history_item:last-child {
-    background-color: #ffdbee;
+
+.remove_history_item {
+    background-color: #ffdfdf;
+    padding: 7px;
+    border-radius: 3px;
+    text-align: center;
+    vertical-align: middle;
+
+}
+.remove_history_item:hover {
+    background-color: #ffdfdf;
+}
+
+.history_item_equation {
+    background-color: #ffffff;
+    padding: 7px 10px 7px 10px;
+    border-radius: 0px 3px 3px 0px;
+    margin-left: 5px;
+    word-wrap: break-word;
+}
+.history_item_result {
+    background-color: #ffffff;
+    padding: 7px 10px 7px 10px;
+    border-radius: 0px 3px 3px 0px;
+    margin-left: 5px;
+    word-wrap: break-word;
 }

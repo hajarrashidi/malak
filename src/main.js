@@ -8,3 +8,8 @@ function getKey(key) {
 function updateEquation() {
     calculatorGUI.updateEquation();
 }
+
+function removeItem(element) {
+    element.parentNode.remove();
+
+}
