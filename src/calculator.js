@@ -28,11 +28,7 @@ class Calculator {
     }
 
     calculate(equation) {
-        // if last character in equation is not a number, remove it
-        if (isNaN(equation[equation.length - 1])) {
-            equation = equation.slice(0, -1);
-        }
-        this.setResult(eval(equation));
+        this.setResult(math.evaluate(equation));
     }
 
     cleanEquation() {
