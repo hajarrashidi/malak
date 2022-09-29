@@ -46,7 +46,7 @@ class CalculatorGUI {
     loadHistory() {
         if (this.calculator.history != null) {
             this.calculator.history.forEach((value, index) => {
-                this.addHistoryItem((this.calculator.history.length), value.equation, value.result);
+                this.addHistoryItem(value.id, value.equation, value.result);
             });
         }
 
