@@ -60,27 +60,42 @@ class CalculatorGUI {
     // History Item
     addHistoryItem(id, equation, result) {
         console.log("Added item with id: " + id);
+
+        // Create history item
+        let historyView = document.createElement("div");
+        historyView.className = "history_item";
+        historyView.dataset.historyId = id;
+
+        let historyEquation = document.createElement("div");
+        historyEquation.className = "history_equation";
+        historyEquation.innerHTML += `<div id="item_${id}" class='history_item_equation'>` + `${equation} = ${result}` + "</div>";
+
+        let historyRemoveButton = document.createElement("div");
+        historyRemoveButton.className = "remove_history_item";
+        historyRemoveButton.innerHTML = "X";
+        historyRemoveButton.addEventListener("click", () => {
+            this.removeHistoryItem(id);
+        });
+
+
+        historyView.appendChild(historyRemoveButton);
+        historyView.appendChild(historyEquation);
+
+
         let history = document.getElementById("history_view");
-        let historyElement = document.createElement("div");
-        historyElement.className = "history_item";
-        historyElement.innerHTML += `<div class='remove_history_item'>x</div>`;
+        history.appendChild(historyView);
 
-        historyElement.onclick = () => {this.removeHistoryItem(id)};
-
-        console.log(id)
-        historyElement.innerHTML += `<div id="item_${id}" class='history_item_equation'>` + `${equation} = ${result}` + "</div>";
-        history.appendChild(historyElement);
-        historyElement.scrollIntoView();
+        historyView.scrollIntoView();
     }
-    removeHistoryItem (itemIndex) {
-        console.log("Removed history item with id: " + itemIndex);
-        // Update DOM
-        document.getElementById("item_" + itemIndex).parentElement.remove();
-        // Update history
-        // this.calculator.history.
-        // update localstorage
-        const indexOfObject = this.calculator.history.findIndex((object) => object.id === itemIndex);
-        this.calculator.history.splice(indexOfObject, 1);
+    removeHistoryItem (historyId) {
+        console.log("Removed history item with id: " + historyId);
+        document.getElementById("history_view").removeChild(document.querySelector(`[data-history-id="${historyId}"]`));
+
+        // Remove from history array
+        this.calculator.history = this.calculator.history.filter((history) => {
+            return history.id != historyId;
+        });
+
         this.calculator.updateLocalstorage_history();
     }
 
