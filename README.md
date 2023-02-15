@@ -1,5 +1,4 @@
 # Malak Calculator 💞
-A calculator for my wife
 
 ## Todo
 - [ ] Add grid layout
